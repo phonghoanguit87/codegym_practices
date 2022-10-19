@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script>
+            function caculate(e) {
+                numberOne = parseFloat(document.getElementById("number-one").value);
+                numberTwo = parseFloat(document.getElementById("number-two").value);
+                let result;
+
+                if(e == "Addition (+)") {
+                    result = numberOne + numberTwo;
+                }
+
+                if(e == "Subtraction (-)") {
+                    result = numberOne - numberTwo;
+                }
+
+                if(e == "Multiplication (X)") {
+                    result = numberOne * numberTwo;
+                }
+
+                if(e == "Division (/)") {
+                    result = numberOne / numberTwo;
+                }
+
+                let resultOutput = document.getElementById("result").innerHTML = `<strong>${e}:</strong> ${result}`;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <hr>
+            <input type="number" id="number-one"/>
+            <input type="number" id="number-two"/>
+            <fieldset>
+                <legend>Result:</legend>
+                <div id="result"></div>
+            </fieldset>
+            <hr><br>
+
+            <input type="button" value="Addition (+)" onclick="caculate(value)"/>
+            <input type="button" value="Subtraction (-)" onclick="caculate(value)"/>
+            <input type="button" value="Multiplication (X)" onclick="caculate(value)"/>
+            <input type="button" value="Division (/)" onclick="caculate(value)"/>
+        </form>
+    </body>
+</html>

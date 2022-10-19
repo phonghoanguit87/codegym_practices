@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script> 
+            function isEvenNumber() {
+                let number = parseInt(document.getElementById("number").value);
+                if(number % 2 == 0) {
+                    alert(`${number} is even number`);
+                } else {
+                    alert(`${number} is odd number`);
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <input id="number" type="number" placeholder="input your number" />
+        <input type="button" onclick="isEvenNumber();" value="Check"/>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            function sayHello() {
+                let hoTen = document.getElementById("ho-ten");
+                let chuoi = `<br> ${hoTen.value} <br>`
+                document.getElementById("ten").innerHTML = chuoi;
+                document.getElementById("test").innerText = chuoi;
+            }
+        </script>
+    </head>
+    <body>
+        Nhập họ tên: <input id="ho-ten"/>
+        <button type="button" onclick="sayHello();"> Chào </button>
+
+        <div>
+            Xin chào bạn 
+            <span id="ten">
+            </span>
+        </div>
+        <div id="test"> </div>
+    </body>
+</html>
