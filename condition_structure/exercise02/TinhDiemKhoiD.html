@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tổng điểm ĐH khối D</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Tổng điểm ĐH khối D</h2>
+        Điểm Toán: <input type="number" min="0" max="10" id="diem-toan"/></br>
+        Điểm Văn: <input type="number" min="0" max="10" id="diem-van"/></br>
+        Điểm Anh: <input type="number" min="0" max="10" id="diem-anh"/></br>
+        Khu vực: 
+        <select id="khu-vuc">
+            <option value="0.75">KV1</option>
+            <option value="0.5">KV2-NT</option>
+            <option value="0.25">KV2</option>
+            <option value="0">KV3</option>
+        </select>
+        </br>
+        <button type="button" onclick="tinhDiem()">Tính điểm</button>
+        <div id="ket-qua"></div>
+
+        <script>
+            function tinhDiem() {
+                let toan = parseFloat(document.getElementById("diem-toan").value);
+                let van = parseFloat(document.getElementById("diem-van").value);
+                let anh = parseFloat(document.getElementById("diem-anh").value);
+                let khuVuc = parseFloat(document.getElementById("khu-vuc").value);
+
+                let tongDiem = toan + van + anh + khuVuc;
+
+                document.getElementById("ket-qua").innerHTML = `Tổng điểm ĐH khối D: ${tongDiem}`;
+            }
+        </script>
+    </body>
+</html>

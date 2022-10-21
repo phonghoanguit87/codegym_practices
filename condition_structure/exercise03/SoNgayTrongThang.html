@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Số ngày trong tháng</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Số ngày trong tháng</h2>
+
+        <input type="text" id="thang"/>
+        <button type="button" onclick="tinhSoNgayTrongThang()">Tính số ngày</button>
+        <div id="ket-qua"></div>
+
+        <script>
+            function tinhSoNgayTrongThang() {
+                let thang = parseInt(document.getElementById("thang").value);
+                let ketQua;
+                switch (thang) {    
+                    case 1:
+                    case 3:     
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        ketQua = "có 31 ngày";
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        ketQua = "có 30 ngày";
+                        break;
+                    case 2:
+                        ketQua = "có 28 hoặc 29 ngày";
+                        break;
+                    default:
+                        ketQua = "không hợp lệ"
+                }
+
+                document.getElementById("ket-qua").innerHTML = `<strong>Tháng ${thang} ${ketQua}</strong>`;
+            }
+        </script>
+    </body>
+</html>

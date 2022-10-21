@@ -1,0 +1,25 @@
+body {
+    width: 30%;
+    height: 10%;
+}
+
+h2 {
+    background-color: rgb(243, 124, 5);
+    text-align: center;
+}
+
+h2 p {
+    color: rgb(246, 243, 243);
+    align-items: center;
+}
+
+.label-items {
+    color: blue;
+    /* height: 30px; */
+    /* width: 100px; */
+}
+
+.radio-options {
+    display: inline-block;
+    color: coral;
+}
