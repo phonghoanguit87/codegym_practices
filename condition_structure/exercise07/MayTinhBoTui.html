@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="js/calculator.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <input type="text" id="man-hinh"/>
+
+            <div id="control">
+                <div id="ban-phim">
+                    <div>
+                        <button type="button" onclick="nhanSo('1')">1</button>
+                        <button type="button" onclick="nhanSo('2')">2</button>
+                        <button type="button" onclick="nhanSo('3')">3</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="nhanSo('4')">4</button>
+                        <button type="button" onclick="nhanSo('5')">5</button>
+                        <button type="button" onclick="nhanSo('6')">6</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="nhanSo('7')">7</button>
+                        <button type="button" onclick="nhanSo('8')">8</button>
+                        <button type="button" onclick="nhanSo('9')">9</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="nhanXoa()">C</button>
+                        <button type="button" onclick="nhanSo('0')">0</button>
+                        <button type="button" onclick="nhanKetQua()">=</button>
+                    </div>
+                </div>
+                <div id="toan-tu">
+                    <button type="button" onclick="nhanToanTu('+')">+</button>
+                    <button type="button" onclick="nhanToanTu('-')">-</button>
+                    <button type="button" onclick="nhanToanTu('x')">x</button>
+                    <button type="button" onclick="nhanToanTu('/')">/</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
