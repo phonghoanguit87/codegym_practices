@@ -22,11 +22,16 @@
                 case true:
                     alert(1);
                     break;
-                case false:
-                    alert(-1);
-                    break;
-                default:
-                    alert(0);
+                
+                    default:
+                    switch(value < 0) {
+                        case true:
+                            alert(-1);
+                            break;
+
+                        default:
+                            alert(0);
+                    }
             }
         </script>
     </body>
