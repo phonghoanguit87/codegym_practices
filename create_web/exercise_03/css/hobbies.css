@@ -1,25 +1,63 @@
 body {
-    width: 30%;
+    width: 40%;
     height: 10%;
+    background-color: aqua;
+}
+
+form {
+    background-color: aliceblue;
 }
 
 h2 {
     background-color: rgb(243, 124, 5);
     text-align: center;
+    color: rgb(246, 243, 243);
+    padding-top: 15px;
+    height: 40px;
 }
 
-h2 p {
-    color: rgb(246, 243, 243);
-    align-items: center;
+label[for=email] {
+    padding-left: 28px;
 }
 
 .label-items {
     color: blue;
-    /* height: 30px; */
-    /* width: 100px; */
 }
 
-.radio-options {
-    display: inline-block;
+.label-hobbies {
     color: coral;
+}
+
+#sport {
+    margin-left: 8px;
+}
+
+#surfing-web, #travel {
+    margin-left: 66px;
+}
+
+#music {
+    margin-left: 20px;
+}
+
+#gaming {
+    margin-left: 12px;
+}
+
+#read-book {
+    margin-left: 30px;
+}
+
+ #film{
+    margin-left: 18px;
+}
+
+input[name=submit] {
+    margin-left: 65px;
+}
+
+input[name=submit],input[name=reset]  {
+    height: 25px;
+    width: 100px;
+    padding-top: 3px;
 }

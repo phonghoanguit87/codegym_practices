@@ -11,34 +11,36 @@
 
 <body>
     <form method="post" action="hobbies_register.html">
-        <h2></h2><p>SỞ THÍCH CỦA BẠN</p></h2>
+        <h2>SỞ THÍCH CỦA BẠN</h2>
+        <p>
+            <label class="label-items" for="yourname">Họ và tên</label> 
+            <input type="text" name="yourname" id="yourname"><br>
+        </p>
+        <p>
+            <label class="label-items" for="email">Enail</label> 
+            <input type="email" name="email" id="email"><br>
+        </p>
+        <p>
+            <label class="label-items" >Sở thích</label> 
+            <input type="checkbox" id="sport" name="hobbies" value="sport">
+            <label class="label-hobbies" for="sport">Thể thao</label>
+            <input type="checkbox" id="music" name="hobbies" value="music">
+            <label class="label-hobbies" for="music">Âm nhạc</label>
+            <input type="checkbox" id="read-book" name="hobbies" value="read-book">
+            <label class="label-hobbies" for="read-book">Đọc sách</label><br>
+            <input type="checkbox" id="surfing-web" name="hobbies" value="surfing-web">
+            <label class="label-hobbies" for="surfing-web">Lướt web</label>
+            <input type="checkbox" id="gaming" name="hobbies" value="gaming">
+            <label class="label-hobbies" for="gaming">Chơi game</label>
+            <input type="checkbox" id="film" name="hobbies" value="film">
+            <label class="label-hobbies" for="film">Điện ảnh</label><br>
+            <input type="checkbox" id="travel" name="hobbies" value="travel">
+            <label class="label-hobbies" for="travel">Du lịch</label>
+        </p>
 
-        <p class="label-items">Họ và tên</p>
-        <input type="text" name="yourname" id="yourname"><br>
-        
-        <p class="label-items">Email</p>
-        <input type="email" name="email" id="email">
-
-        <p class="label-items">Sở thích</p>
-        <input type="radio" id="male" name="hobby" value="sport">
-        <label class="radio-options" for="male">Thể thao</label>
-        <input type="radio" id="female" name="hobby" value="music">
-        <label class="radio-options" for="female">Âm nhạc</label>
-        <input type="radio" id="male" name="hobby" value="Read-book">
-        <label class="radio-options" for="male">Đọc sách</label><br>
-        <input type="radio" id="female" name="hobby" value="surfing-wweb">
-        <label class="radio-options" for="female">Lướt web</label>
-        <input type="radio" id="male" name="hobby" value="gaming">
-        <label class="radio-options" for="male">Chơi game</label>
-        <input type="radio" id="female" name="hobby" value="film">
-        <label class="radio-options" for="female">Điện ảnh</label><br>
-        <input type="radio" id="male" name="hobby" value="travel">
-        <label class="radio-options" for="male">Du lịch</label><br><br>
-
-
-
+        <br>
         <input type="submit" name="submit" value="Gửi thông tin">
-        <input type="reset" name="reset" id="Nhập lại">
+        <input type="reset" name="reset" value="Nhập lại">
     </form>
 </body>
 
