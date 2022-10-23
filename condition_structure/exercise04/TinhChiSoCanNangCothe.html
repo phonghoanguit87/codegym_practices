@@ -42,13 +42,9 @@
             function tinhChiSoCoThe() {
                 let canNang = parseFloat(document.getElementById("can-nang").value);
                 let chieuCao = parseFloat(document.getElementById("chieu-cao").value);
-
-                console.log(canNang);
-                console.log(chieuCao);       
-
                 let result;
                 let bmi = canNang / ( chieuCao *  chieuCao);
-                console.log(bmi); 
+                
                 if(bmi > 40) {
                     result = 'Béo phì cấp độ III';
                 } else if (bmi >= 35 && bmi < 40) {
