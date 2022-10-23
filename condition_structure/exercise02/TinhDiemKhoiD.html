@@ -12,10 +12,10 @@
         Điểm Anh: <input type="number" min="0" max="10" id="diem-anh"/></br>
         Khu vực: 
         <select id="khu-vuc">
-            <option value="0.75">KV1</option>
-            <option value="0.5">KV2-NT</option>
-            <option value="0.25">KV2</option>
-            <option value="0">KV3</option>
+            <option value="kv1">KV1</option>
+            <option value="kv2-nt">KV2-NT</option>
+            <option value="kv2">KV2</option>
+            <option value="kv3">KV3</option>
         </select>
         </br>
         <button type="button" onclick="tinhDiem()">Tính điểm</button>
@@ -26,10 +26,20 @@
                 let toan = parseFloat(document.getElementById("diem-toan").value);
                 let van = parseFloat(document.getElementById("diem-van").value);
                 let anh = parseFloat(document.getElementById("diem-anh").value);
-                let khuVuc = parseFloat(document.getElementById("khu-vuc").value);
-
-                let tongDiem = toan + van + anh + khuVuc;
-
+                let khuVuc = document.getElementById("khu-vuc").value;
+                let diemKhuVuc;
+                if(khuVuc == 'kv1') {
+                    diemKhuVuc = 0.75;
+                } else if (khuVuc == 'kv2-nt') {
+                    diemKhuVuc = 0.5;
+                } else if (khuVuc == 'kv2') {
+                    diemKhuVuc = 0.25;
+                } else {
+                    diemKhuVuc = 0;
+                }
+                console.log(khuVuc);
+                console.log(diemKhuVuc);
+                let tongDiem = toan + van + anh + diemKhuVuc;
                 document.getElementById("ket-qua").innerHTML = `Tổng điểm ĐH khối D: ${tongDiem}`;
             }
         </script>
