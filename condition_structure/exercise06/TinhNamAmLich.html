@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tính năm âm lịch từ năm dương lịch</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Tính năm âm lịch từ năm dương lịch</h2>
+
+        <p> Năm dương lịch: <input type="text" id="nam" /></p><br>
+        <button type="button" onclick="tinhNamAmLich()">Tính năm âm</button><br>
+
+        <div id="ket-qua"></div>
+
+        <script>
+            function tinhNamAmLich() {
+                let nam = parseInt(document.getElementById("nam").value);
+                let result;
+                let mod10 = nam % 10;
+                let mod12 = nam % 12;
+                switch(mod10) {
+                    case 0:
+                        result = "Canh ";
+                        break;
+                    case 1:
+                        result = "Tân ";
+                        break;
+                    case 2:
+                        result = "Nhâm ";
+                        break;
+                    case 3:
+                        result = "Quý ";
+                        break;
+                    case 4:
+                        result = "Giáp ";
+                        break;
+                    case 5:
+                        result = "Ất ";
+                        break;
+                    case 6:
+                        result = "Bính ";
+                        break;
+                    case 7:
+                        result = "Đinh ";
+                        break;
+                    case 8:
+                        result = "Mậu ";
+                        break;
+                    default:
+                        result = "Kỷ ";
+                }
+
+                switch(mod12) {
+                    case 0:
+                        result += "Thân";
+                        break;
+                    case 1:
+                        result += "Dậu";
+                        break;
+                    case 2:
+                        result += "Tuất";
+                        break;
+                    case 3:
+                        result += "Hợi";
+                        break;
+                    case 4:
+                        result += "Tý";
+                        break;
+                    case 5:
+                        result += "Sửu";
+                        break;
+                    case 6:
+                        result += "Dần";
+                        break;
+                    case 7:
+                        result += "Mẹo";
+                        break;
+                    case 8:
+                        result += "Thìn";
+                        break;
+                    case 9:
+                        result += "Tỵ";
+                        break;
+                    case 10:
+                        result += "Ngọ";
+                        break;
+                    default:
+                        result += "Mùi";
+                }
+
+                document.getElementById("ket-qua").innerHTML = `Năm âm lịch: <strong>${result}</strong>`;
+            }
+        </script>
+    </body>
+</html>
