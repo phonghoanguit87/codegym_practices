@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const LOWER = 'abcdefghijklmnopqrstuvwxyz';
+            let arrStr = prompt("Nhập vào chuỗi:");
+            let result = [];
+
+            for(let i = 0; i < arrStr.length; i++) {
+                if(UPPER.indexOf(arrStr[i]) !== -1) {
+                    result.push(arrStr[i].toLowerCase());
+                } else if(LOWER.indexOf(arrStr[i]) !== -1) {
+                    result.push(arrStr[i].toUpperCase());
+                } else {
+                    result.push(arrStr[i]);
+                }
+            }
+            alert(result.join(""));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>chèn dấu (-) giữa 2  số chẵn</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            let arrStr = prompt("Nhập vào mảng số:");
+            let arr = [arrStr[0]];
+
+            for(let i = 1; i < arrStr.length; i++) {
+                if((arrStr[i-1] % 2 === 0)&&(arrStr[i] % 2 === 0)) {
+                    arr.push("-", arrStr[i]);
+                } else {
+                    arr.push(arrStr[i]);
+                }
+            }
+
+            alert(arr.join(""));
+        </script>
+        
+    </body>
+</html>

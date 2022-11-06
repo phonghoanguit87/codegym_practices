@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tìm giá trị lớn nhất trong mảng</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Tìm giá trị lớn nhất trong mảng</h2>
+        <input type="text" id="txtValue"/><br><br>
+        <input type="button" id="btnAdd" value="Add" onclick="addElementToArray();"/>
+        <input type="button" id="btnFindMax" value="Display" onclick="findMaxValue();"/>
+        <div id="result"></div>
+
+        <script>
+            let elements = [];
+
+            function addElementToArray() {
+                let value = parseInt(document.getElementById("txtValue").value);
+                elements.push(value);
+
+                document.getElementById("txtValue").value = "";
+            }
+
+            function findMaxValue() {
+                let max = elements[0];
+
+                for (let i = 1; i < elements.length; i++) {
+                    if (elements[i] > max) {
+                        max = elements[i];
+                        index = i;
+                    }
+                }
+
+                document.getElementById("result").innerHTML = `max:  ${max} at position: ${index}`;
+            }
+        </script>
+    </body>
+</html>

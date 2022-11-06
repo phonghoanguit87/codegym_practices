@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Đảo ngược các phần tử trong mảng</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            let x = [-3, 5, 1, 3, 2, 10];
+            let first = 0;
+            let last = x.length - 1;
+            document.write(`Mảng: ${x} <br>`);
+
+            while (first < last) {
+                let b = x[first];
+                x[first] = x[last];
+                x[last] = b;
+                first++;
+                last--;
+            }
+
+            document.write(`Mảng sau khi đảo: ${x}`);
+        </script>
+    </body>
+</html>

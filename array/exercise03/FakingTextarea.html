@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Faking Textarea on Typing</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Type anthing slowly</h2>
+        <textarea id="main" cols="40" rows="10" onkeydown="pressKeys();"></textarea>
+
+        <script>
+            let str = "CHAO MUNG BAN DEN DAY   ";
+            let content = "";
+            let messageStrArr = [];
+            for(let i = 0; i < str.length; i++) {
+                messageStrArr.push(str[i]);
+            }
+
+            function pressKeys(){
+                let textareaValue = document.getElementById("main").value;
+                let length = textareaValue.length;
+
+                if(length > 0) {
+                    for(let i = 0; i <= length; i++) {
+                        content += messageStrArr[i];
+
+                        if(i == (messageStrArr.length - 1)) {
+                            document.getElementById("main").value = "";
+                            content = "";
+                        }
+                    }
+                }
+                
+                document.getElementById("main").value = content;
+                content = "";
+                setTimeout("pressKeys()", 500);
+            }
+        </script>
+    </body>
+</html>
