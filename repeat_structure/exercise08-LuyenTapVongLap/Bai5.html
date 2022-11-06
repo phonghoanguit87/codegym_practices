@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tính tổng của 20 số đầu tiên trong dãy fibonacci.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="ket_qua"></div>
+
+        <script>
+            let n1 = 1;
+            let n2 = 1;
+            let count = 0;
+            let tong = 0;
+
+            while (count < 20) {
+                tong += n1;         
+                    
+                nextNumber = n1 + n2;
+                n1 = n2;
+                n2 = nextNumber;
+                count++;
+            }
+
+            document.getElementById("ket_qua").innerHTML = `Tổng của 20 số đầu tiên trong dãy fibonacci: ${tong}`;
+        </script>
+    </body>
+</html>

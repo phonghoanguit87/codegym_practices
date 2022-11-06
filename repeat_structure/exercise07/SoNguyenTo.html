@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hiển thị các số nguyên tố đầu tiên</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Hiển thị các số nguyên tố đầu tiên</h2>
+
+        Số lượng: <input type="number" id="so_lương"/>
+        <button type="button" onclick="hienthi()">Hiển thị</button>
+        <div id="ket_qua"></div>
+
+        <script>
+            function hienthi() {
+                let soLuong = parseInt(document.getElementById("so_lương").value);
+                let count = 1;
+                let startNumber = 2;
+                let ketQua = "";
+
+                while(count <= soLuong) {
+                    if(kiemTraSNT(startNumber)) {
+                        ketQua += startNumber + " ";
+                        count++;
+                    }
+
+                    startNumber++;
+                }
+
+                document.getElementById("ket_qua").innerHTML = `Kết quả: ${ketQua}`;
+            }
+
+            function kiemTraSNT(number) {
+                let laSNT = true;
+                for(let i = 2; i < number - 1; i++){
+                    if (number % i == 0){
+                        laSNT = false;
+                        break;
+                    }
+                }
+
+                return laSNT;
+            }
+        </script>
+    </body>
+</html>

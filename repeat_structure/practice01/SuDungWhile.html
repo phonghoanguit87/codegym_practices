@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sử dụng vòng lặp while</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            let total = 0;
+            let num = parseInt(prompt("Enter a number: "));
+
+            while( num != -1 ) {
+                if(!isNaN(num)) {
+                    total = total + num;
+                }
+                
+                num = parseInt(prompt("Enter a number: "));
+            } 
+            alert(`Total is ${total}`);
+        </script>
+
+    </body>
+</html>

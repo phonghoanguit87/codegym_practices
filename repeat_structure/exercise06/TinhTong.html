@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tính tổng các số trong khoảng</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Tính tổng các số trong khoảng</h2>
+
+        Từ: <input type="number" id="so_1"/>
+        Đến: <input type="number" id="so_2"/>
+        <button type="button" onclick="tinhTong()">Tính tổng</button>
+        <div id="ket_qua"></div>
+
+        <script>
+            function tinhTong() {
+                let so1 = parseInt(document.getElementById("so_1").value);
+                let so2 = parseInt(document.getElementById("so_2").value);
+                let tong = 0;
+
+                for (let number = so1; number <= so2; number++){
+                    tong += number;
+                }
+
+                document.getElementById("ket_qua").innerHTML = `Kết quả: ${tong}`;
+            }
+        </script>
+    </body>
+</html>

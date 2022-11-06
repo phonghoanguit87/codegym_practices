@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="ket_qua"></div>
+
+        <script>
+            let ketQua = "";
+            for(let i = 1; i <= 100; i++) {
+                if(i % 15 === 0) {
+                    ketQua += "FizzBuzz <br>"
+                } else if (i % 3 === 0) {
+                    ketQua += "Fizz <br>"
+                } else if (i % 5 === 0) {
+                    ketQua += "Buzz <br>"
+                } else {
+                    ketQua += i + "<br>"
+                }
+            }
+
+            document.getElementById("ket_qua").innerHTML = `Kết Quả: <br> ${ketQua}`;
+        </script>
+    </body>
+</html>

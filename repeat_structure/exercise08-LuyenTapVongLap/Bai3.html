@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="ket_qua"></div>
+
+        <script>
+            let result = [];
+            let n1 = 1;
+            let n2 = 1;
+            let count = 0;
+            let ketQua = "";
+
+            while (count <= 20) {
+                ketQua += n1 + "<br>";            
+                nextNumber = n1 + n2;
+                n1 = n2;
+                n2 = nextNumber;
+                count++;
+            }
+            document.getElementById("ket_qua").innerHTML = `Dãy Fibonacci: ${ketQua}`;
+        </script>
+    </body>
+</html>

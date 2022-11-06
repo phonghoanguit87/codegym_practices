@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Game đoán số</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            let max = parseInt(prompt("Nhập vào số lớn nhất."));
+            let result = Math.floor(Math.random() * max);
+            let count = 0;
+            let isCont = true;
+
+            do {
+                let number = parseInt(prompt("Nhập vào số của bạn: "));
+                count++;
+                if(number < result) {
+                    alert("Bạn nhập số nhỏ hơn.");
+                } 
+                
+                if(number > result) {
+                    alert("Bạn nhập số lớn hơn.");
+                }
+
+                if(number == result) {
+                    alert(`Chúc mừng bạn đoán đúng số cần tìm là ${result}`);
+                    isCont = false;
+                }
+
+                if(count >= 3 && number !== result) {
+                    alert(`Bạn đã đoán ${count} lần, số cần tìm là ${result}`);
+                    isCont = false;
+                }
+            } while(isCont)
+        </script>
+    </body>
+</html>

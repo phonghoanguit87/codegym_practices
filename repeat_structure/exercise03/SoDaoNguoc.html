@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Số đảo ngược</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            let daySo = parseInt(prompt("Nhập vào số nguyên dương: "));
+            let result = 0;
+
+            while (daySo > 0) {
+                let soLayra = daySo % 10;
+                result = result * 10 + soLayra;
+                daySo = Math.floor(daySo / 10);
+            }
+
+            alert(result);
+        </script>
+    </body>
+</html>

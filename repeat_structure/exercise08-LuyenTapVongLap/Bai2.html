@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="ket_qua"></div>
+        <script>
+            let nhietDo = parseFloat(prompt("Nhập nhiệt đô"));
+            
+            do {
+                if(nhietDo < 20) {
+                    nhietDo = parseFloat(prompt("Tăng nhiệt đô là:"));
+                } 
+                if(nhietDo > 100) {
+                    nhietDo = parseFloat(prompt("Giảm nhiệt đô là:"));
+                }
+            } while(nhietDo < 20 || nhietDo > 100)
+
+            document.getElementById("ket_qua").innerHTML = `Nhiệt độ là: ${nhietDo}`;
+        </script>
+    </body>
+</html>

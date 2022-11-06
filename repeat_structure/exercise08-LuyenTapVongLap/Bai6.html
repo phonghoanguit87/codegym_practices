@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tính tổng 30 số đầu tiên chia hết cho 7</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="ket_qua"></div>
+
+        <script>
+            let count = 0;
+            let number = 0;
+            let total = 0;
+
+            while(count < 30) {
+                if(number % 7 == 0) {
+                    total += number;
+                    count ++;
+                }
+
+                number ++;
+            }
+
+            document.getElementById("ket_qua").innerHTML = `Tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên: ${total}`;
+
+        </script>
+    </body>
+</html>

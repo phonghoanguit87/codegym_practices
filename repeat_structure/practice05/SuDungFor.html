@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sử dụng vòng lặp for</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>JavaScript Loops</h2>
+        <p id="ket_qua"></p>
+
+        <script>
+            let text = "";
+            for (let i = 0; i < 5; i++) {
+                text += "The number is " + i + "<br>";
+            }
+
+            document.getElementById("ket_qua").innerHTML = text;
+        </script>
+    </body>
+</html>

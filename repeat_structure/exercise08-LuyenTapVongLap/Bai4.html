@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="ket_qua"></div>
+
+        <script>
+            let n1 = 1;
+            let n2 = 1;
+            let count = 0;
+            let ketQua = "";
+
+            while (count < 1) {
+                if(n1 % 5 == 0) {
+                    ketQua += n1 + "<br>";            
+                    count++;
+                }
+            
+                nextNumber = n1 + n2;
+                n1 = n2;
+                n2 = nextNumber;
+            }
+
+            document.getElementById("ket_qua").innerHTML = `Số đầu tiên trong dãy fibonacci chia hết cho 5: ${ketQua}`;
+        </script>
+    </body>
+</html>

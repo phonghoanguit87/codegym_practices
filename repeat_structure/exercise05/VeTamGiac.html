@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vẽ hình tam giác</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            button {
+                margin-left: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        Nhập số dòng: <input type="number" id="so_dong"/><br>
+        <button type="button" onclick="veHinhTamGiac()">Vẽ hình tam giác</button>
+
+        <div id="ket_qua"></div>
+
+        <script>
+            function veHinhTamGiac() {
+                let ket_qua = document.getElementById("ket_qua");
+                let so_dong = parseInt(document.getElementById("so_dong").value);
+                let result = "";
+
+                for (let i = 1; i <= so_dong; i++) {
+                    for (let j = 1; j <= i; j++) {
+                        result += "*";
+                    }
+
+                    result += "<br>";
+                }
+
+                result += "<br>";
+                for (let i = so_dong; i > 0 ; i--) {
+                    for (let j = i; j > 0; j--) {
+                        result += "*";
+                    }
+
+                    result += "<br>";
+                }
+
+                result += "<br>";
+                for (let i = 1; i <= so_dong ; i++) {
+                    for(let j = 1; j <= so_dong - i; j++) {
+                        result += "&nbsp&nbsp";
+                    }
+
+                    for (let j = so_dong; j >= so_dong - i + 1; j--) {
+                        result += "*";
+                    }
+
+                    result += "<br>";
+                }
+
+                result += "<br>";
+                for (let i = so_dong; i > 0 ; i--) {
+                    for(let j = so_dong - i; j > 0; j--) {
+                        result += "&nbsp&nbsp";
+                    }
+
+                    for (let j = so_dong; j >= so_dong - i + 1; j--) {
+                        result += "*";
+                    }
+                    result += "<br>";
+                }
+
+                ket_qua.innerHTML = result;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.</h2>
+        <div id="ket_qua"></div>
+        <script>
+            let ketQua = "";
+            for(let i = 0; i < 100; i++) {
+                ketQua += (i + 1) + "<br>";
+                document.getElementById("ket_qua").innerHTML = ketQua;
+                
+                if(i === 99) {
+                    alert("Đã hoàn thành");
+                }
+            }
+        </script>
+    </body>
+</html>
