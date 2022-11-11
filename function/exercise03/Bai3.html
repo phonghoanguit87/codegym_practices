@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Viết hàm tính bình phương của một số bất kỳ được đưa vào</h3>
+
+        Nhập số: <input type="number" id="number"/>
+        <button type="button" onclick="tinhBinhPhuong()">Tính bình phương</button>
+        <div id="ket_qua"></div>
+        <script>
+            function square(number) {
+                return Math.pow(number, 2);
+            }
+
+            function tinhBinhPhuong() {
+                let number = parseInt(document.getElementById("number").value);
+                let binhPhuong = square(number);
+
+                document.getElementById("ket_qua").innerHTML = `Bình phương của ${number} là: ${binhPhuong}`;
+            }
+        </script>
+    </body>
+</html>

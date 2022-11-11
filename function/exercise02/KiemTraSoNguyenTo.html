@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hàm kiểm tra số nguyên tố</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        Nhập số: <input type="number" id="number"/>
+        <button type="button" onclick="kiemTraSNT()">Kiểm Tra</button>
+        <div id="ket_qua"></div><br>
+        <div id="so_nguyen_to"></div>
+
+        <script>
+            function isPrime(number) {
+                if(number === 0 || number === 1) {
+                    return false;
+                }
+
+                for(let i = 2; i < number; i++) {
+                    if(number % i == 0) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            function kiemTraSNT() {
+                let number = parseInt(document.getElementById("number").value);
+                let result = `${number} không phải là số NGUYÊN TỐ.`;
+
+                if(isPrime(number)) {
+                    result = `${number} là số NGUYÊN TỐ.`;
+                }
+                document.getElementById("ket_qua").innerHTML = result;
+            }
+
+            function displayNumberOfPrimes() {
+                let number = parseInt(document.getElementById("number").value);
+                let count = 0;
+                let primes = [];
+                let i = 2;
+
+                do {
+                    if(isPrime(i)) {
+                        primes.push(i);
+                        count += 1;
+                    }
+                    i++;
+                    
+                } while(count < number)
+
+                document.getElementById("ket_qua").innerHTML = primes.join(", ");
+            }
+
+            let daySoNguyenTo = [];
+            for(let i = 2; i < 10000; i++) {
+                if(isPrime(i)) {
+                    daySoNguyenTo.push(i);
+                }
+            }
+            document.getElementById("so_nguyen_to").innerHTML = `Dãy số nguyên tố nhỏ hơn 10000: <br> ${daySoNguyenTo.join(", ")}`;
+        </script>
+    </body>
+</html>

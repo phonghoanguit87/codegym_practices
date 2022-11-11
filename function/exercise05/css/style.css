@@ -24,6 +24,7 @@ button {
     height: 26px;
     width: 100px;
     display: block;
+    background-color: rgb(5, 155, 5);
 }
 
 p, input {

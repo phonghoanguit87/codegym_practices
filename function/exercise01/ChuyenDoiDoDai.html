@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chuyển đổi giữa feet và meters</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Chuyển đổi giữa feet và meters</h3>
+        <input type="text" id="input_txt"/>
+        from:  
+        <select id="from_unit">
+            <option value="feet">feet</option>
+            <option value="meters">meters</option>
+        </select>
+        to: 
+        <select id="to_unit">
+            <option value="meters">meters</option>
+            <option value="feet">feet</option>
+        </select><br>
+        <button type="button" onclick="chuyenDoi()">Chuyển đổi</button>
+        <div id="ket_qua"></div>
+
+        <script>
+            function footToMeter(foot) {
+                return meter = 0.305 * foot;
+                
+            }
+
+            function meterToFoot(meter) {
+                return foot = 3.279 * meter;
+            }
+
+            function chuyenDoi() {
+                let inputTxt = parseFloat(document.getElementById("input_txt").value);
+                let fromUnit = document.getElementById("from_unit").value;
+                let toUnit = document.getElementById("to_unit").value;
+                let result;
+                console.log("inputTxt ", inputTxt);
+                console.log("fromUnit ", fromUnit);
+                console.log("toUnit ", toUnit);
+
+                if(fromUnit == "meters" && toUnit =="feet") {
+                    result = `${inputTxt} ${fromUnit} chuyển đổi thành ${meterToFoot(inputTxt)} ${toUnit}`;
+                } else if(fromUnit == "feet" && toUnit =="meters") {
+                    result = `${inputTxt} ${fromUnit} chuyển đổi thành ${footToMeter(inputTxt)} ${toUnit}`;
+                } else {
+                    result = "Vui lòng chọn đơn vị chuyển đổi."
+                }
+
+                document.getElementById("ket_qua").innerHTML = result;
+            }
+
+        </script>
+    </body>
+</html>

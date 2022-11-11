@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</h3>
+
+        Nhập 3 số: <input type="text" id="numbers" placeholder="3, 6, 7"/>
+        <button type="button" onclick="findMinNumber()">Số nhỏ nhất</button>
+        <div id="ket_qua"></div>
+        <script>
+            function getMinNumber(number1, number2, number3) {
+                let min = number1;
+
+                if(min > number2) {
+                    min = number2;
+                }
+
+                if(min > number3) {
+                    min = number3;
+                }
+
+                return min;
+            }
+
+            function findMinNumber() {
+                let numbers = document.getElementById("numbers").value;
+                let numberArr = numbers.split(",");
+                let number1 = parseInt(numberArr[0].trim());
+                let number2 = parseInt(numberArr[1].trim());
+                let number3 = parseInt(numberArr[2].trim());
+                let min = getMinNumber(number1, number2, number3);
+
+                document.getElementById("ket_qua").innerHTML = `Số nhỏ nhất là ${min}`;
+            }
+        </script>
+    </body>
+</html>

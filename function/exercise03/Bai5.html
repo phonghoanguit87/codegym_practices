@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào</h3>
+
+        Nhập số: <input type="number" id="number"/>
+        <button type="button" onclick="tinhGiaiThua()">Tính giai thừa</button>
+        <div id="ket_qua"></div>
+        <script>
+            function factorial(number) {
+                if(number === 0) {
+                    return 1;
+                }
+
+                return number * factorial(number - 1);
+            }
+
+            function tinhGiaiThua() {
+                let number = parseInt(document.getElementById("number").value);
+                let giaiThua = factorial(number);
+
+                document.getElementById("ket_qua").innerHTML = `Giai thừa của ${number} là: ${giaiThua}`;
+            }
+        </script>
+    </body>
+</html>

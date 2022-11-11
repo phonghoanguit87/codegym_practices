@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không</h3>
+
+        Nhập ký tự số: <input type="text" id="number"/>
+        <button type="button" onclick="kiemTraKyTuSo()">Kiểm tra</button>
+        <div id="ket_qua"></div>
+        <script>
+            function isNumber(number) {
+                if(isNaN(number)) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            function kiemTraKyTuSo() {
+                let number = document.getElementById("number").value;
+                let laSo = isNumber(parseInt(number));
+                let ketQua = "";
+
+                if(laSo) {
+                    ketQua = "là số"
+                } else {
+                    ketQua = "không phải là số"
+                }
+                document.getElementById("ket_qua").innerHTML = `Kết quả: <strong>${number}</strong> ${ketQua}`;
+            }
+        </script>
+    </body>
+</html>
