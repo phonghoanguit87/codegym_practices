@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.</h3>
+
+        Nhập mảng số nguyên: <input type="number" min="2" id="numbers"/>
+        <button type="button" onclick="kiemTraSoNguyenDuong()">Đảo ngược</button>
+        <div id="ket_qua"></div>
+        <script>
+            function reverseArr(arr) {
+                return arr.reverse();
+            }
+
+            function kiemTraSoNguyenDuong () {
+                let numberStr = document.getElementById("numbers").value;
+                let numberArr = [];
+
+                for(let i = 0; i < numberStr.length; i++) {
+                    numberArr.push(numberStr[i]);
+                }
+                console.log(numberArr);
+
+                let numberReverseArr = reverseArr(numberArr);
+                console.log(numberReverseArr);
+                document.getElementById("ket_qua").innerHTML = `Kết quả: ${numberReverseArr.join("")}`;
+            }
+        </script>
+    </body>
+</html>

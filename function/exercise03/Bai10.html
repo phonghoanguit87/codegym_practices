@@ -6,8 +6,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <h4>Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+            Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1
+        </h4>
+
+        Nhập mảng: <input type="text" id="character_str"/>
+        <button type="button" onclick="kiemTraChuoi()">Kiểm tra</button>
+        <div id="ket_qua"></div>
         <script>
-            
+            let arr = ["chuoi1", "chuoi2", "chuoi3"];
+
+            function coChuoiTrongMang(arr, str) {
+                return arr.includes(str);
+            }
+
+            function kiemTraChuoi() {
+                let characterStr = document.getElementById("character_str").value;
+                let isExist = coChuoiTrongMang(arr, characterStr);
+
+                if(isExist) {
+                    document.getElementById("ket_qua").innerHTML = `<i>${characterStr}</i> có trong mảng <i>[${arr.join(", ")}]</i>`;
+                } else {
+                    document.getElementById("ket_qua").innerHTML =  `<i>${characterStr}</i> <strong>KHÔNG</strong> có trong mảng <i>[${arr.join(", ")}]</i>`;
+                }
+            }
         </script>
     </body>
 </html>

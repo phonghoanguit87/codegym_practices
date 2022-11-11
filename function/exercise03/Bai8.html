@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h3>Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không</h3>
+
+        Nhập số: <input type="number" id="number"/>
+        <button type="button" onclick="kiemTraSoNguyenDuong()">Kiểm tra số nguyên dương</button>
+        <div id="ket_qua"></div>
+        <script>
+            function isPositiveIntegers(number) {
+                return (Number.isInteger(number) && number > 0);
+            }
+
+            function kiemTraSoNguyenDuong () {
+                let number = parseInt(document.getElementById("number").value);
+                let laSoNguyenDuong = isPositiveIntegers(number);
+
+                if(laSoNguyenDuong) {
+                    document.getElementById("ket_qua").innerHTML = `${number} là số nguyên dương`;
+                } else {
+                    document.getElementById("ket_qua").innerHTML = `${number} <strong>KHÔNG PHẢI</strong> là số nguyên dương`;
+                }
+            }
+        </script>
+    </body>
+</html>
