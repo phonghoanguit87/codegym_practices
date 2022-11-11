@@ -7,15 +7,18 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <h3>Product Management Application</h3>
+        <div id="main_content">
+            <h3>Product Management Application</h3>
 
-
-        Add product: <input type="text" id="product_name" placeholder="New Product"/>
-        <button type="button" onclick="addNewProductEvent()">Add</button>
-        <div id="product_list">
-            <h3>Display All Products:</h3>
-            <div id="header"></div>
-            <div id="result"></div>
+            <div id="container">
+                Add product: <input type="text" id="product_name" placeholder="New Product"/>
+                <button type="button" onclick="addNewProductEvent()">Add</button>
+            </div>
+            <div id="product_list">
+                <h3>Display All Products:</h3>
+                <div id="header"></div>
+                <div id="result"></div>
+            </div>
         </div>
 
         <script>
