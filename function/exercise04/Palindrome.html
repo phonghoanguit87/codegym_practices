@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <input id="chuoi"/>
+        <button id="kiem_tra" onclick="kiemTra()">Kiểm tra</button>
+        
+        <div id="ket_qua"></div>
+
+        <script>
+            function isPalindrome(str) {
+                for(let i = 0, len = str.length - 1; i < len/2; i++) {
+                    if (str[i] !== str[len-i]) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            function kiemTra() {
+                let chuoi = document.getElementById("chuoi").value;
+                let laChuoiDoiXung = isPalindrome(chuoi);
+
+
+                if(laChuoiDoiXung) {
+                    document.getElementById("ket_qua").innerHTML = `${chuoi} là chuỗi Palindrome`
+                } else {
+                    document.getElementById("ket_qua").innerHTML = `${chuoi} KHÔNG PHẢI là chuỗi Palindrome`
+                }
+            }
+        </script>
+    </body>
+</html>
