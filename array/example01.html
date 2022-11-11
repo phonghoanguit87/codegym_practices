@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        1. Nhập số dòng số cột và tạo mà trận.
+        2. Khởi tạo giá trị ngẫu nhiên.
+        3. Hiển thị ma trận.
+    </pre>
+    Nhập số dòng: <input id="so_dong" type="number" min="1"><br>
+    Nhập số cột: <input id="so_cot" type="number" min="1"><br>
+    <button type="button" onclick="xuLyMaTran()">Khởi tạo ma trận</button>
+    <div id="ket_qua"></div>
+
+    <script>
+        function xuLyMaTran() {
+            let bang = document.createElement("table");
+            let soDong = parseInt(document.getElementById("so_dong").value);
+            let soCot = parseInt(document.getElementById("so_cot").value);
+            let maTran = new Array(soDong).fill((new Array(soCot)));
+
+            for (let iDong = 0; iDong < maTran.length; iDong++) {
+                let dong = document.createElement("tr");
+                for (let jCot = 0; jCot< maTran[iDong].length; jCot++) {
+                    let cot = document.createElement("td");
+
+                    maTran[iDong][jCot] = Math.floor(Math.random() * 100 + 1);
+                    cot.innerHTML = maTran[iDong][jCot];
+                    dong.appendChild(cot);
+                }
+                bang.appendChild(dong);
+            }
+
+            document.getElementById("ket_qua").appendChild(bang);
+        }
+    </script>
+</body>
+</html>

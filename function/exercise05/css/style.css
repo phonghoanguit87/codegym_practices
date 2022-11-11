@@ -1,0 +1,33 @@
+body {
+    width: fit-content;
+}
+
+#product_list {
+    width: 400px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product_element {
+    display: flex;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    height: 26px;
+    width: 100px;
+    display: block;
+}
+
+p, input {
+    height: 20px;
+    width: 200px;
+    text-align: left;
+}

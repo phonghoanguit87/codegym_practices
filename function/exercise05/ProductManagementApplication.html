@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Product Management Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h3>Product Management Application</h3>
+
+
+        Add product: <input type="text" id="product_name" placeholder="New Product"/>
+        <button type="button" onclick="addNewProductEvent()">Add</button>
+        <div id="product_list">
+            <h3>Display All Products:</h3>
+            <div id="header"></div>
+            <div id="result"></div>
+        </div>
+
+        <script>
+            let productList = ["Sony Xperia", "Samsung Galaxy", "Nokia 6"];
+
+            function addNewProduct(productName) {
+                productList.push(productName);
+            }
+
+            function editProduct(productName, newProductName){
+                let index = productList.indexOf(productName);
+                if (index > -1) {
+                    productList[index] = newProductName;
+                }
+            }
+
+            function deleteProduct(productName){
+                let index = productList.indexOf(productName);
+                if (index > -1) {
+                    productList.splice(index, 1);
+                }
+            }
+            
+            function displayHeader() {
+                let headerEl =  document.getElementById("header");
+                headerEl.innerHTML = "";
+                let nameColumn = document.createElement("p");
+                nameColumn.textContent = "Product Name";
+                nameColumn.className = "header";
+                let totalProduct = document.createElement("p");
+                totalProduct.textContent = `${productList.length} products`;
+                totalProduct.className = "header";
+
+                headerEl.appendChild(nameColumn);
+                headerEl.append(totalProduct);
+            }
+
+            function displayProductList() {
+                let productTableEl = document.getElementById("result");
+
+                productTableEl.innerHTML = "";
+                if(productList.length > 0) {
+                    productList.forEach(sanPham => {
+                        let productContainerEl = document.createElement("div");
+                        productContainerEl.className = "product_element";
+
+                        let productNameTxt = document.createElement("input");
+                        productNameTxt.type = "text";
+                        productNameTxt.placeholder = sanPham;
+                        productNameTxt.className = "hidden";
+
+                        let productNameEl = document.createElement("p");
+                        productNameEl.textContent = sanPham;
+                        productNameEl.onclick = function () {
+                            let nameTxt = this.parentElement.querySelector('.hidden');
+                            nameTxt.classList.remove("hidden");
+                            nameTxt.className = "new-product-name";
+                            this.className = "hidden";
+                        };
+
+                        let editBtn = document.createElement("button");
+                        editBtn.type = "button";
+                        editBtn.textContent = "Edit";
+                        editBtn.onclick = function () {
+                            let productName = this.parentElement.textContent;
+                            productName = productName.replace("EditDelete", "");
+
+                            let nameTxt = this.parentElement.querySelector('.new-product-name');
+                            if(nameTxt != null) {
+                                if(nameTxt.value.length > 0) {
+                                    editProduct(productName, nameTxt.value);
+
+                                    displayHeader();
+                                    displayProductList();
+                                } else {
+                                    alert("Please forcus and change product name to edit!");
+                                }
+                            } else {
+                                alert("Please forcus and change product name to edit!");
+                            }
+                        };
+
+                        let deleteBtn = document.createElement("button");
+                        deleteBtn.type = "button";
+                        deleteBtn.textContent = "Delete";
+                        deleteBtn.onclick = function () {
+                            let productName = this.parentElement.textContent;
+                            productName = productName.replace("EditDelete", "");
+                            deleteProduct(productName);
+
+                            displayHeader();
+                            displayProductList();
+                        };
+
+                        productContainerEl.append(productNameEl);
+                        productContainerEl.append(productNameTxt);
+                        productContainerEl.append(editBtn);
+                        productContainerEl.append(deleteBtn);
+                        productTableEl.append(productContainerEl);
+                    });
+                }
+            }
+
+            function addNewProductEvent() {
+                let productName = document.getElementById("product_name").value;
+                productList.push(productName);
+
+                displayHeader();
+                displayProductList();
+            }
+
+            displayHeader();
+            displayProductList();
+        </script>
+    </body>
+</html>
