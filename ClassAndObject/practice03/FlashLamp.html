@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="./js/Battery.js"></script>
+        <script type="text/javascript" src="./js/FlashLamp.js"></script>
+    </head>
+    <body>
+        <div id="result"></div>
+        <script>
+            let result = "";
+            let battery = new Battery();
+            battery.setEnergy(10);
+
+            let flashLamp = new FlashLamp();
+            flashLamp.setBattery(battery);
+
+            result += "Battery info:" + flashLamp.getBatteryInfo() + "<br/>";
+            flashLamp.light();
+
+            result += "Turn on<br/>"
+            flashLamp.turnOn();
+            flashLamp.light();
+            result += "Battery info:" + flashLamp.getBatteryInfo() + "<br/>";
+
+            result += "Turn off<br/>";
+            flashLamp.turnOff();
+            flashLamp.light();
+
+            document.getElementById("result").innerHTML = result;
+        </script>
+    </body>
+</html>
