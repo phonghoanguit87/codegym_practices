@@ -1,17 +1,31 @@
-body {
-    width: fit-content;
-}
-
 #main_content {
-
+    width: 500px;
+    margin-left: 35%;
 }
+
+#container {
+    display: flex;
+    background-color: rgb(220, 229, 229);
+    height: 50px;
+}
+
+#container > label, input, button {
+    margin-top: 10px;
+    padding-right: 10px;
+}
+
 #product_list {
-    width: 400px;
+    width: 500px;
 }
 
 #header {
     display: flex;
     justify-content: space-between;
+}
+
+.header:nth-child(2) {
+    width: 100px;
+    color: coral;
 }
 
 .product_element {
@@ -38,12 +52,4 @@ p, input {
     height: 20px;
     width: 200px;
     text-align: left;
-}
-
-#container {
-    display: flex;
-    background-color: azure;
-    height: 150px;
-    width: 300px;
-    margin-left: 100px;
 }
