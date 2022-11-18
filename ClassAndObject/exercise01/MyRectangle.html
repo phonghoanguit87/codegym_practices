@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="./class/Rectangle.js"></script>
+
+    </head>
+    <body>
+        <div class="main">
+            <div>
+                <input type="number" id="height"/>
+                <input type="number" id="width"/>
+                <button type="button" onclick="capNhatHinhChuNhat()">Change</button>
+                <div id="result"></div>
+            </div><br>
+    
+            <canvas id="rectangle" width="800" height="600" style="border: 3px solid #000000"></canvas>
+        </div>
+
+        <script>
+            const x = 50;
+            const y = 50;
+            let myRectangle = new Rectangle(200, 300);
+            var ctx = document.getElementById("rectangle").getContext("2d");
+            myRectangle.draw(ctx, 50, 50);
+            document.getElementById("result").innerHTML = `Perimeter: ${myRectangle.getPerimeter()} - Area: ${myRectangle.getArea()}`;
+
+            function capNhatHinhChuNhat() {
+                let myHeight = parseInt(document.getElementById("height").value);
+                let myWidth = parseInt(document.getElementById("width").value);
+
+                myRectangle.clear(ctx, x, y);
+                myRectangle.setHeight(myHeight);
+                myRectangle.setWidth(myWidth);
+                myRectangle.draw(ctx, x, y);
+                document.getElementById("result").innerHTML = `Perimeter: ${myRectangle.getPerimeter()} - Area: ${myRectangle.getArea()}`;
+            }
+        </script>
+    </body>
+</html>
