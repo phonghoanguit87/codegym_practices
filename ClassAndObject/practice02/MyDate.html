@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="./js/MyDate.js"></script>
+    </head>
+    <body>
+        <div id="result"></div>
+        <script>
+            let myDate = new MyDate(18, 11, 2022);
+            let date = myDate.toString();
+            myDate.setDate(19, 11, 2022);
+            let dateNew = myDate.toString();
+
+            document.getElementById("result").innerHTML = `date: ${date} - date after use setDate : ${dateNew}`;
+        </script>
+    </body>
+</html>
