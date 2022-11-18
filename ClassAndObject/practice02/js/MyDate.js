@@ -36,6 +36,20 @@ class MyDate {
       }
 
       toString() {
-            return this.day + "/" + this.month + "/" + this.year;
+            let result = "";
+
+            if(this.day < 10) {
+                  result += "0" + this.day + "/";
+            } else {
+                  result += this.day + "/";
+            }
+
+            if(this.month < 10) {
+                  result += "0" + this.month + "/";
+            } else {
+                  result += this.month + "/";
+            }
+
+            return result + this.year;
       }
   }
