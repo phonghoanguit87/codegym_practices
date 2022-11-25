@@ -1,0 +1,19 @@
+button {
+    width: 100px;
+    height: 30px;
+    margin-left: 106px;
+}
+
+img {
+    width: 350px;
+    height: 350px;
+}
+
+img.resize {
+    width:350px;
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}

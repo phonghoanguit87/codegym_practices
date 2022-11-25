@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Turn ON/OFF the Electric Lamp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="./class/SwitchButton.js"></script>
+        <script type="text/javascript" src="./class/ElectricLamp.js"></script>
+    </head>
+    <body>
+        <button type="button" id="witch_button" onclick="clickSwitchButton()">CONNECTED</button>
+        <div id="main_content">
+            <img id="on" class="hidden" src="./images/on.png">
+            <img id="off" src="./images/off.png">
+        </div>
+
+        <script>
+            let switchBtn = new SwitchButton(false);
+            let lamp = new ElectricLamp(false);
+            switchBtn.connectToLamp(lamp);
+
+            function clickSwitchButton() {
+                let buttonStatus = switchBtn.getStatus();
+                let lampStatus = switchBtn.lamp.getStatus();
+                if(buttonStatus) {
+                    switchBtn.switchOff();
+                    switchBtn.lamp.turnOff();
+                } else {
+                    switchBtn.switchOn();
+                    switchBtn.lamp.turnOn();
+                }
+                
+                display(buttonStatus, lampStatus);
+            }
+
+            function display(buttonStatus, lampStatus) {
+                let button = document.getElementById("witch_button");
+                let onLamp = document.getElementById("on");
+                let offLamp = document.getElementById("off");
+                console.log(buttonStatus);
+                console.log(lampStatus);
+
+                if(!buttonStatus) {
+                    button.innerHTML = "ON";
+                } else {
+                    button.innerHTML = "OFF";
+                }
+ 
+                if(lampStatus) {
+                    onLamp.classList = "";
+                    offLamp.classList = "hidden";
+                } else {
+                    onLamp.classList = "hidden";
+                    offLamp.classList = "";
+                }
+            }
+        </script>
+    </body>
+</html>
