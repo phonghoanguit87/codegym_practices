@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Adam and Eva</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="./class/Apple.js"></script>
+        <script type="text/javascript" src="./class//Human.js"></script>
+
+    </head>
+    <body>
+        <script>
+            let adam = new Human("Adam", false, 65);
+            let eva = new Human("Eva", true, 46);
+            let redApple = new Apple();
+            let hasApple = true;
+
+            adam.say("Chúng ta lấy táo ăn nha.");
+            eva.say("Được đó");
+            let i = 1;
+            while (hasApple) {
+                eatApple(eva);
+                eatApple(adam);
+                i += 1;
+                if(i > 10) {
+                    break;
+                }
+
+            }
+
+            adam.say(`Adam nặng ${adam.getWeight()}`);
+            eva.say(`Eval nặng ${eva.getWeight()}`);
+
+            function eatApple(person) {
+                hasApple = adam.checkApple(redApple);
+
+                if(hasApple) {
+                    redApple = person.eatApple(redApple);
+                    person.setWeight(person.getWeight() + 1);
+                    person.say(`${person.getName()}: Táo ngon quá`);
+                } else {
+                    hasApple = false;
+                    person.say(`${person.getName()}: Hết táo rồi.`);
+                }
+            }
+        </script>
+    </body>
+</html>
