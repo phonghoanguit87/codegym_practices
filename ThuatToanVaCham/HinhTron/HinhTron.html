@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hình Tròn</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        Hình tròn 1:
+        <hr>
+        R1: <input type="number" id="r1" value="100"/>
+        X1: <input type="number" id="x1" value="100"/>
+        Y1: <input type="number" id="y1" value="100"/>
+        <br><br>
+
+        Hình tròn 2:
+        <hr>
+        R2: <input type="number" id="r2" value="100"/>
+        X2: <input type="number" id="x2" value="300"/>
+        Y2: <input type="number" id="y2" value="300"/>
+        <br><br>
+
+        <button type="button" onclick="kiemTraVaCham()">Kiểm tra</button>
+        <div id="result"></div><br><br>
+        <canvas id="circle" width="800" height="600" style="border: 3px solid #000000"></canvas>
+        <script>
+            class Circle {
+                constructor(x, y, r) {
+                    this.x = x;
+                    this.y = y;
+                    this.r = r;
+                }
+
+                draw(ctx, color) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+                    ctx.strokeStyle= color;
+                    ctx.stroke();
+                }
+            }
+
+            function isCollision(c1,  c2) {
+                let distance = Math.sqrt(Math.pow((c1.x - c2.x), 2) + Math.pow((c1.y - c2.y), 2));
+                let sumOfRadius = c1.r + c2.r;
+                console.log("distance " , distance);
+                console.log("sumOfRadius ", sumOfRadius);
+
+                return  sumOfRadius >= distance;
+            }
+
+            function kiemTraVaCham() {
+                var ctx = document.getElementById("circle").getContext("2d");
+                ctx.clearRect(0, 0, 800, 600);
+
+                let r1 = parseInt(document.getElementById("r1").value);
+                let x1 = parseInt(document.getElementById("x1").value);
+                let y1 = parseInt(document.getElementById("y1").value);
+                let circle1 = new Circle(x1, y1, r1);
+                circle1.draw(ctx, "red");
+
+                let r2 = parseInt(document.getElementById("r2").value);
+                let x2 = parseInt(document.getElementById("x2").value);
+                let y2 = parseInt(document.getElementById("y2").value);
+                let circle2 = new Circle(x2, y2, r2);
+                circle2.draw(ctx, "blue");
+
+                let coVaCham = isCollision(circle1, circle2);
+                if(coVaCham) {
+                    document.getElementById("result").innerHTML = "Hai hình tròn có va chạm";
+                } else {
+                    document.getElementById("result").innerHTML = "Hai hình tròn không va chạm";
+                }
+            }
+        </script>
+    </body>
+</html>
