@@ -17,15 +17,9 @@
 
             adam.say("Chúng ta lấy táo ăn nha.");
             eva.say("Được đó");
-            let i = 1;
             while (hasApple) {
                 eatApple(eva);
                 eatApple(adam);
-                i += 1;
-                if(i > 10) {
-                    break;
-                }
-
             }
 
             adam.say(`Adam nặng ${adam.getWeight()}`);
@@ -33,14 +27,16 @@
 
             function eatApple(person) {
                 hasApple = person.checkApple(redApple);
+                let weight = person.getWeight();
+                let name = person.getName();
 
                 if(hasApple) {
                     redApple = person.eatApple(redApple);
-                    person.setWeight(person.getWeight() + 1);
-                    person.say(`${person.getName()}: Táo ngon quá`);
+                    person.setWeight(weight + 1);
+                    person.say(`${name}: Táo ngon quá`);
                 } else {
                     hasApple = false;
-                    person.say(`${person.getName()}: Hết táo rồi.`);
+                    person.say(`${name}: Hết táo rồi.`);
                 }
             }
         </script>
