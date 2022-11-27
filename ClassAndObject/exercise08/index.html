@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Television</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="./Remote.js"></script>
+        <script type="text/javascript" src="./Television.js"></script>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="main">
+            <div id="television_area">
+                <div id="panel">
+                    <button type="button" id="turn_on_off" onclick="powerOn()">ON/OFF</button>
+                </div>
+                <div id="monitor"></div>
+            </div>
+            <div id="remote_area">
+                <button type="button" id="chanel_plus" onclick="increaseChanel()">+</button><br>
+                <button type="button" id="volume_minus" onclick="reduceVolume()">-</button>
+                <button type="button" id="volume_plus" onclick="increaseVolume()">+</button><br>
+                <button type="button" id="chanel_minus" onclick="reduceChanel()">-</button>
+            </div>
+
+            <script>
+                const CHANEL_NUMBER = 9;
+                let tivi = new Television(false, 1, 0.3);
+                let remote = new Remote("RM001", 0, 0);
+                let status = false;
+                let chanelList = [];
+
+                function powerOn() {
+                    if(status == false) {
+                        document.getElementById("turn_on_off").classList.add("on");
+                        status = true;
+                        tivi.turnOn();
+                        remote.connectToTelevison(tivi);
+                    } else {
+                        document.getElementById("turn_on_off").classList.remove("on");
+                        status = false;
+                        tivi.turnOff();
+                    }
+                }
+
+                function increaseChanel() {
+                    remote.increaseChanel();
+                }
+
+                function reduceChanel() {
+                    remote.reduceChanel();
+                }
+
+                function increaseVolume() {
+                    remote.increaseVolume();
+                }
+
+                function reduceVolume() {
+                    remote.reduceVolume();
+                }
+            </script>
+        </div>
+    </body>
+</html>

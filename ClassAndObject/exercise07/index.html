@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cat and Mouse</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="./class/Cell.js"></script>
+        <script type="text/javascript" src="./class/Board.js"></script>
+        <script type="text/javascript" src="./class/Mouse.js"></script>
+        <script type="text/javascript" src="./class/Cat.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <div id="screen">
+                <button id="play" onclick="play()">Play</button>
+                <input type="text" id="cat_name" value="Tom"/>
+                <button id="music" type="button" onclick="playOrStopMusic()" title="Turn on/off game music">ON</button>
+                <div id="message">Hello, Have a good time playing the game</div>
+             </div>
+
+            <div id="game-board">
+            </div>
+        </div>
+        <script>
+            let catName = document.getElementById("cat_name").value;
+            let audio = new Audio('./sounds/nhac-nen.mp3');
+            let statusMusic = false;
+
+            let gameBoard;
+            let cat = new Cat(catName, 5, 5);
+            let mouse1 = new Mouse("Jerry", 2, 3);
+
+
+            function playOrStopMusic() {
+               if(statusMusic) {
+                    audio.pause();
+                    statusMusic = false;
+                    document.getElementById("music").innerHTML = "ON";
+               } else {
+                    audio.play();
+                    statusMusic = true;
+                    document.getElementById("music").innerHTML = "OFF";
+               }
+                
+            }
+
+            function init() {
+                gameBoard  = new Board(DEFAULT_ROWS, DEFAULT_COLS, "game-board", cat, mouse1);
+                gameBoard.draw();
+            }
+
+            function play() {
+                cat.showMessage("I will catch all the mice");
+                cat.call();
+                mouse1.showMessage("Please catch me (^\\^)");
+                mouse1.call();
+                document.getElementById("play").disabled = true;
+            }
+
+            function onClickCell(x, y) {
+                gameBoard.play(x, y);
+            }
+
+            function cellOver(x, y) {
+                gameBoard.over(x, y);
+            }
+
+            function cellOut(x, y) {
+                gameBoard.out(x, y);
+            }
+
+            init();
+        </script>
+    </body>
+</html>

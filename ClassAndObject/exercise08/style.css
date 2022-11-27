@@ -1,0 +1,68 @@
+/* Television */
+#television_area {
+    display: flex;
+    border:3px solid #1506f0;
+    width: 800px;
+    height: 500px;
+}
+
+#panel {
+    width: 200px;
+    height: 500px;
+}
+
+#turn_on_off {
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 5px;
+}
+
+.on {
+    border: 3px solid #f07706;
+    border-radius: 5px;
+}
+
+#monitor {
+    width: 600px;
+    height: 500px;
+    border:2px solid #1506f0;
+}
+
+/* Remote */
+#remote_area {
+    width: 150px;
+    height: 200px;
+    border:2px solid #000000;
+    margin-top: 30px;
+    margin-left: 300px;
+    padding-top: 50px;
+    padding-left: 13px;
+}
+
+button {
+    width: 42px;
+    height: 42px;
+    margin-top: 5px;
+}
+
+#chanel_plus, #chanel_minus {
+    margin-left: 48px;
+    background-color: chocolate;
+}
+
+#volume_plus {
+    margin-left: 47px;
+}
+
+#volume_plus, #volume_minus{
+    background-color: rgb(221, 240, 3);
+}
+
+.img {
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 590px;
+    height: 490px;
+}
