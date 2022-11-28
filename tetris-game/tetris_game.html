@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tetris Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="./js/blocks/Basic.js"></script>
+        <script type="text/javascript" src="./js/blocks/I.js"></script>
+        <script type="text/javascript" src="./js/blocks/J.js"></script>
+        <script type="text/javascript" src="./js/blocks/L.js"></script>
+        <script type="text/javascript" src="./js/blocks/O.js"></script>
+        <script type="text/javascript" src="./js/blocks/S.js"></script>
+        <script type="text/javascript" src="./js/blocks/T.js"></script>
+        <script type="text/javascript" src="./js/blocks/Z.js"></script>
+        <script type="text/javascript" src="./js/Tetris.js"></script>
+        <script>
+            console.log(window.location.search);
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <canvas id="tetris-canvas" width="420" height="600">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+
+            <canvas id="control-canvas" width="400" height="400">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+        </div>
+        <script>
+            const tetris = new Tetris()
+            tetris.updateCurrentBoard()
+            tetris.draw()
+            tetris.drawNext();
+            
+            window.addEventListener('keydown', (event) => {
+                switch (event.keyCode) {
+                    case 37: // Left
+                        tetris.tryMoveLeft()
+                        break
+                    
+                    case 38: // Up
+                        tetris.tryRotating()
+                        break
+                    
+                    case 39: // Right
+                        tetris.tryMoveRight()
+                        break
+                    
+                    case 40: // Down
+                        tetris.tryMoveDown()
+                        break
+                }
+            })
+
+            let controlCancas = document.getElementById("control-canvas");
+            let controlCtx = controlCancas.getContext('2d');
+
+            // Up key
+            controlCtx.beginPath();
+            controlCtx.arc(100, 50, 30, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Down key
+            controlCtx.beginPath();
+            controlCtx.arc(100, 160, 30, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Left key
+            controlCtx.beginPath();
+            controlCtx.arc(50, 105, 30, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Right key
+            controlCtx.beginPath();
+            controlCtx.arc(150, 105, 30, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Play
+            controlCtx.beginPath();
+            controlCtx.arc(300, 115, 45, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Sound
+            controlCtx.beginPath();
+            controlCtx.arc(250, 35, 15, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Reset key
+            controlCtx.beginPath();
+            controlCtx.arc(300, 35, 15, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            // Pause key
+            controlCtx.beginPath();
+            controlCtx.arc(350, 35, 15, 0, 2 * Math.PI);
+            controlCtx.fillStyle = "#4873cf";
+            controlCtx.fill();
+            controlCtx.closePath();
+
+            controlCtx.fillStyle = "#000000";
+            controlCtx.fillText('SOUND', 230, 15);
+            controlCtx.fillText('RESET', 284, 15);
+            controlCtx.fillText('PAUSE', 333, 15);
+
+
+            let elemLeft = controlCancas.offsetLeft; //20
+            let elemTop = controlCancas.offsetTop; //444   
+            controlCancas.addEventListener('click', function(event) {
+                // console.log("============================");
+                // console.log("controlCancas.width", controlCancas.width);
+                // console.log("controlCancas.height", controlCancas.height);
+                // console.log("elemLeft", elemLeft);
+                // console.log("elemTop", elemTop);
+                // console.log("event.pageX", event.pageX);
+                // console.log("event.pageY", event.pageY);
+
+                var xClick = event.pageX + (elemLeft * 2);
+                var yClick = event.pageY - (elemTop - 20);
+
+                //console.log("CLICKED: (xClick,yClick) ", xClick, yClick);
+
+                // Up key
+
+                // Down key
+
+                // Left key
+
+                // Right key
+
+                // Play controlCtx.arc(300, 115, 45, 0, 2 * Math.PI);
+                if ((xClick > 300 - 45 && xClick < 300 + 45) && (yClick > 115 - 45 && yClick < 115 + 45)) { 
+                    console.log(tetris.getPauseStatus());
+                    if(tetris.getPauseStatus()) {
+                        tetris.setPauseStatus(false);
+                        if(!tetris.getPlayStatus()) {
+                            tetris.setPlayStatus(true)
+                            tetris.play();
+                        }
+                    } else {
+                        if(!tetris.getPlayStatus()) {
+                            tetris.setPlayStatus(true)
+                            tetris.play();
+                        }
+                    }
+
+
+                    console.log("Play start ...");
+                }  
+
+                // controlCtx.arc(250, 35, 15, 0, 2 * Math.PI);
+                // Sound
+                if ((xClick > 250 - 15 && xClick < 250 + 15) && (yClick > 35 - 15 && yClick < 35 + 15)) { 
+                    if(tetris.getMusic()) {
+                        tetris.setMusic(false);
+                        tetris.turnOnSound();
+                    } else {
+                        tetris.setMusic(true);
+                        tetris.turnOnSound();
+                    }
+                    console.log("turn sound ...");
+                }
+
+                // Reset
+                // controlCtx.arc(300, 35, 15, 0, 2 * Math.PI);
+                if ((xClick > 300 - 15 && xClick < 300 + 15) && (yClick > 35 - 15 && yClick < 35 + 15)) { 
+                    tetris.reset();
+                    console.log("reset game ...");
+                }
+                // controlCtx.arc(350, 35, 15, 0, 2 * Math.PI);
+                // Pause
+                // console.log(350 - 15, 350 + 15,  35 - 15, 35 + 15);
+                if ((xClick > 350 - 15 && xClick < 350 + 15) && (yClick > 35 - 15 && yClick < 35 + 15)) { 
+                    tetris.setPauseStatus(true);
+                    console.log("Pause game ...");
+                }
+            }, false); 
+        </script>
+    </body>
+</html>
