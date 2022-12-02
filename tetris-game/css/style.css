@@ -1,8 +1,9 @@
 body {
     align-content: center;
 }
+
 #main {
-    position: absolute;
+    position: fixed;
     width: 340px;
     height: 600px;
     border-radius: 5px;

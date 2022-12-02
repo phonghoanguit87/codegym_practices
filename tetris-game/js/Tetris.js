@@ -391,7 +391,7 @@ class Tetris {
         this.gameOver = false;
         this.draw();
         this.drawNext();
-        this.gameInterval = null;
+        clearInterval(this.gameInterval)
     }
     
     isGameOver() {

@@ -14,9 +14,6 @@
         <script type="text/javascript" src="./js/blocks/T.js"></script>
         <script type="text/javascript" src="./js/blocks/Z.js"></script>
         <script type="text/javascript" src="./js/Tetris.js"></script>
-        <script>
-            console.log(window.location.search);
-        </script>
     </head>
     <body>
         <div id="main">
@@ -29,89 +26,82 @@
             </canvas>
         </div>
         <script>
-            const tetris = new Tetris()
-            tetris.updateCurrentBoard()
-            tetris.draw()
+            const normalColor = "#4873cf";
+            const activeColor = "#6e94d7";
+            let controlCancas = document.getElementById("control-canvas");
+            let controlCtx = controlCancas.getContext('2d');
+            const tetris = new Tetris();
+            tetris.updateCurrentBoard();
+            tetris.draw();
             tetris.drawNext();
             
             window.addEventListener('keydown', (event) => {
                 switch (event.keyCode) {
                     case 37: // Left
-                        tetris.tryMoveLeft()
-                        break
+                        tetris.tryMoveLeft();
+                        drawButton(controlCtx, 50, 105, 30, activeColor);
+                        break;
                     
                     case 38: // Up
-                        tetris.tryRotating()
-                        break
+                        tetris.tryRotating();
+                        drawButton(controlCtx, 100, 50, 30, activeColor);
+                        break;
                     
                     case 39: // Right
-                        tetris.tryMoveRight()
-                        break
+                        tetris.tryMoveRight();
+                        drawButton(controlCtx, 150, 105, 30, activeColor);
+                        break;
                     
                     case 40: // Down
-                        tetris.tryMoveDown()
-                        break
+                        tetris.tryMoveDown();
+                        drawButton(controlCtx, 100, 160, 30, activeColor);
+                        break;
                 }
             })
 
-            let controlCancas = document.getElementById("control-canvas");
-            let controlCtx = controlCancas.getContext('2d');
+            window.addEventListener('keyup', (event) => {
+                switch (event.keyCode) {
+                    case 37: // Left
+                        drawButton(controlCtx, 50, 105, 30, normalColor);
+                        break;
+                    
+                    case 38: // Up
+                        drawButton(controlCtx, 100, 50, 30, normalColor);
+                        break;
+                    
+                    case 39: // Right
+                        drawButton(controlCtx, 150, 105, 30, normalColor);
+                        break;
+                    
+                    case 40: // Down
+                        drawButton(controlCtx, 100, 160, 30, normalColor);
+                        break;
+                }
+            })
 
             // Up key
-            controlCtx.beginPath();
-            controlCtx.arc(100, 50, 30, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 100, 50, 30, normalColor);
 
             // Down key
-            controlCtx.beginPath();
-            controlCtx.arc(100, 160, 30, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 100, 160, 30, normalColor);
 
             // Left key
-            controlCtx.beginPath();
-            controlCtx.arc(50, 105, 30, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 50, 105, 30, normalColor);
 
             // Right key
-            controlCtx.beginPath();
-            controlCtx.arc(150, 105, 30, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 150, 105, 30, normalColor);
 
             // Play
-            controlCtx.beginPath();
-            controlCtx.arc(300, 115, 45, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 300, 115, 45, normalColor);
 
             // Sound
-            controlCtx.beginPath();
-            controlCtx.arc(250, 35, 15, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 250, 35, 15, normalColor);
 
             // Reset key
-            controlCtx.beginPath();
-            controlCtx.arc(300, 35, 15, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 300, 35, 15, normalColor);
 
             // Pause key
-            controlCtx.beginPath();
-            controlCtx.arc(350, 35, 15, 0, 2 * Math.PI);
-            controlCtx.fillStyle = "#4873cf";
-            controlCtx.fill();
-            controlCtx.closePath();
+            drawButton(controlCtx, 350, 35, 15, normalColor);
 
             controlCtx.fillStyle = "#000000";
             controlCtx.fillText('SOUND', 230, 15);
@@ -119,37 +109,36 @@
             controlCtx.fillText('PAUSE', 333, 15);
 
 
-            let elemLeft = controlCancas.offsetLeft; //20
-            let elemTop = controlCancas.offsetTop; //444   
             controlCancas.addEventListener('click', function(event) {
-                // console.log("============================");
-                // console.log("controlCancas.width", controlCancas.width);
-                // console.log("controlCancas.height", controlCancas.height);
-                // console.log("elemLeft", elemLeft);
-                // console.log("elemTop", elemTop);
-                // console.log("event.pageX", event.pageX);
-                // console.log("event.pageY", event.pageY);
-
-                var xClick = event.pageX + (elemLeft * 2);
-                var yClick = event.pageY - (elemTop - 20);
-
-                //console.log("CLICKED: (xClick,yClick) ", xClick, yClick);
+                var xClick = event.pageX;
+                var yClick = event.pageY;
 
                 // Up key
-
-                // Down key
-
-                // Left key
+                if ((xClick > 80 && xClick < 126) && (yClick > 465 && yClick < 515)) { 
+                    tetris.tryRotating();
+                }
 
                 // Right key
+                if ((xClick > 119 && xClick < 165) && (yClick > 510 && yClick < 555)) { 
+                    tetris.tryMoveRight();
+                }
 
-                // Play controlCtx.arc(300, 115, 45, 0, 2 * Math.PI);
-                if ((xClick > 300 - 45 && xClick < 300 + 45) && (yClick > 115 - 45 && yClick < 115 + 45)) { 
-                    console.log(tetris.getPauseStatus());
+                // Left key
+                if ((xClick > 44 && xClick < 85) && (yClick > 505 && yClick < 555)) { 
+                    tetris.tryMoveLeft();
+                }
+
+                // Down key
+                if ((xClick > 80 && xClick < 125) && (yClick > 550 && yClick < 595)) { 
+                    tetris.tryMoveDown();
+                }
+
+                // Play button
+                if ((xClick > 220 && xClick < 285) && (yClick > 505 && yClick < 570)) {
                     if(tetris.getPauseStatus()) {
                         tetris.setPauseStatus(false);
                         if(!tetris.getPlayStatus()) {
-                            tetris.setPlayStatus(true)
+                            tetris.setPlayStatus(true);
                             tetris.play();
                         }
                     } else {
@@ -158,14 +147,10 @@
                             tetris.play();
                         }
                     }
-
-
-                    console.log("Play start ...");
                 }  
 
-                // controlCtx.arc(250, 35, 15, 0, 2 * Math.PI);
-                // Sound
-                if ((xClick > 250 - 15 && xClick < 250 + 15) && (yClick > 35 - 15 && yClick < 35 + 15)) { 
+                // Sound button
+                if ((xClick > 204 && xClick < 227) && (yClick > 470 && yClick < 490)) { 
                     if(tetris.getMusic()) {
                         tetris.setMusic(false);
                         tetris.turnOnSound();
@@ -173,23 +158,26 @@
                         tetris.setMusic(true);
                         tetris.turnOnSound();
                     }
-                    console.log("turn sound ...");
                 }
 
-                // Reset
-                // controlCtx.arc(300, 35, 15, 0, 2 * Math.PI);
-                if ((xClick > 300 - 15 && xClick < 300 + 15) && (yClick > 35 - 15 && yClick < 35 + 15)) { 
+                // Reset button
+                if ((xClick > 240 && xClick < 265) && (yClick > 468 && yClick < 490)) { 
                     tetris.reset();
-                    console.log("reset game ...");
                 }
-                // controlCtx.arc(350, 35, 15, 0, 2 * Math.PI);
-                // Pause
-                // console.log(350 - 15, 350 + 15,  35 - 15, 35 + 15);
-                if ((xClick > 350 - 15 && xClick < 350 + 15) && (yClick > 35 - 15 && yClick < 35 + 15)) { 
+
+                // Pause button
+                if ((xClick > 280 && xClick < 305) && (yClick > 505 && yClick < 572)) { 
                     tetris.setPauseStatus(true);
-                    console.log("Pause game ...");
                 }
             }, false); 
+
+            function drawButton(ctx, x, y, r, color) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.closePath();
+            }
         </script>
     </body>
 </html>
